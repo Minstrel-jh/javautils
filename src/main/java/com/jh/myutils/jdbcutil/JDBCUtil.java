@@ -24,7 +24,7 @@ public class JDBCUtil {
 	
 	public static void loadConfig() {
 		try {
-			InputStream is = JDBCUtil.class.getClassLoader().getResourceAsStream("config.properties");
+			InputStream is = JDBCUtil.class.getClassLoader().getResourceAsStream("jdbc.properties");
 			Properties prop = new Properties();
 			prop.load(is);
 			USERNAME = prop.getProperty("jdbc.username");
@@ -32,7 +32,7 @@ public class JDBCUtil {
 			DRIVER = prop.getProperty("jdbc.driver");
 			URL = prop.getProperty("jdbc.url");
 		} catch(Exception e) {
-			throw new RuntimeException("读取数据库文件异常", e);
+			throw new RuntimeException("读取配置文件异常", e);
 		}
 	}
 	
